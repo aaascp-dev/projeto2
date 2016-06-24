@@ -1,0 +1,82 @@
+- Exemplo que contem basicamente tudo que fizemos no Allen:
+
+def fun int: tudo() if TRUE then while FALSE do int:a;a:=3.4; end while else int[10]:ar;ar[3]:=4; def type: complex real:r; real:i; end def end if return 1; return 2; end def
+
+Erro semantico: operacao de assign esperava dois tipos compativeis, mas recebeu real e inteiro
+Definição de função inteira: tudo
++parametros:
+sem parametros
+ 
++corpo:
+Expressao condicional 
++se: 
+(valor booleano TRUE)
++entao: 
+Laco
++enquanto: (valor booleano FALSE)
++faca: 
+Declaracao de variavel inteira : a
+Atribuicao de valor para (coercao de valor de variavel inteira : a para real) (valor real 3.4)
+
+Fim laco
+
+
++senao: 
+Declaracao de arranjo inteiro
+{+indice: (valor inteiro 10)}
+Atribuicao de valor para arranjo inteiro
+{+indice: (valor inteiro 3)} (valor inteiro 4)
+Definicao tipo: complex
++componentes:
+Declaracao de variavel real : r
+Declaracao de variavel real : i
+Fim definicao
+
+
+Fim expressao condicional
+
+Retorno de função: 
+(valor inteiro 1)
+Retorno de função: 
+(valor inteiro 2)
+Fim definição.
+
+
+
+- Exemplo de escopo dinamico que funciona: 
+int:a; if TRUE then a:=3; else a:=4.2; end if
+
+Retorno Esperado:
+Erro semantico: operacao de assign esperava dois tipos compativeis, mas recebeu real e inteiro
+Declaracao de variavel inteira : a
+Expressao condicional 
++se: 
+(valor booleano TRUE)
++entao: 
+Atribuicao de valor para variavel inteira : a (valor inteiro 3)
+
++senao: 
+Atribuicao de valor para (coercao de valor de variavel inteira : a para real) (valor real 4.2)
+
+Fim expressao condicional
+
+
+- Exemplo de escopo dinamico que nao gera erros de escopo:
+if TRUE then int:a;  a:=3; else a:=4.2; end if
+
+Line 1: error: Variável ainda não definida! a
+Erro semantico: operacao de assign esperava dois tipos compativeis, mas recebeu indefinido e real
+Expressao condicional 
++se: 
+(valor booleano TRUE)
++entao: 
+Declaracao de variavel inteira : a
+Atribuicao de valor para variavel inteira : a (valor inteiro 3)
+
++senao: 
+Atribuicao de valor para variavel indefinida : a (valor real 4.2)
+
+Fim expressao condicional
+
+
+
